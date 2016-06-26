@@ -1,0 +1,10 @@
+<p class="lead">Filtre por categoria</p>
+<div class="list-group">
+    <a href="#!/produtos"
+      ng-class="{negrito: vmCategorias.categoriaSelecionada(undefined)}"
+      class="list-group-item">TODAS</a>
+    <a ng-repeat="categoria in vmCategorias.categorias"
+      href="#!/produtos/{{categoria}}"
+      ng-class="{negrito: vmCategorias.categoriaSelecionada(categoria)}"
+      class="list-group-item">{{categoria}}</a>
+</div>

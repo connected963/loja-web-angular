@@ -1,0 +1,19 @@
+<div class="row" ng-app="acesso">
+    <div class="col-lg-4 col-centered">
+      <h3>Trocar Senha</h3>
+      <form>
+        <div class="form-group">
+          <label for="atual">Senha atual</label>
+          <input type="password" class="form-control" id="atual" placeholder="Senha atual" ng-model="vmSenha.atual">
+        </div>
+        <div class="form-group">
+          <label for="nova">Nova senha</label>
+          <input type="password" class="form-control" id="nova" placeholder="Nova senha" ng-model="vmSenha.nova">
+        </div>
+        <div class="form-group">
+          <label for="confirmacao">Confirmação da nova senha</label>
+          <input type="password" class="form-control" id="confirmacao" placeholder="Confirmação da senha" ng-model="vmSenha.confirmacao">
+        </div>
+        <button type="button" class="btn btn-success" ng-click="vmSenha.trocar()">Trocar</button>
+      </form>
+</div>

@@ -1,0 +1,54 @@
+<div class="row">
+
+    <div class="col-lg-12">
+
+        <div class="row">
+          <div class="col-lg-2">
+            <h4>Pedido Nº {{vmPedido.pedido.id}}</h4>
+          </div>
+          <div class="col-lg-2 pull-right">
+            <strong>Data:</strong> {{vmPedido.pedido.data | date: 'dd/MM/yy HH:mm:ss'}}
+          </div>
+          <div class="col-lg-2 pull-right">
+            <strong>Usuário:</strong> {{vmPedido.pedido.usuario.nome}}
+          </div>
+        </div>
+        <hr>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Foto</th>
+                    <th>Produto</th>
+                    <th>Preço</th>
+                    <th>Quantidade</th>
+                    <th style="text-align: right;">Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in vmPedido.pedido.itens | orderBy: 'id'">
+                    <td class="linha-carrinho" scope="row">{{$index+1}}</td>
+                    <td class="linha-carrinho" scope="row"><img src="{{item.produto.urlFoto}}" style="height: 40px"/></td>
+                    <td class="linha-carrinho" scope="row">{{item.produto.nome}}</td>
+                    <td class="linha-carrinho" scope="row">{{item.produto.preco | currency}}</td>
+                    <td class="linha-carrinho" scope="row">{{item.quantidade}}</td>
+                  <td class="linha-carrinho" style="text-align: right;" scope="row">{{item.produto.preco * item.quantidade | currency}}</td>
+                </tr>
+                <tr class="info">
+                  <td>
+                    <strong>Total do Pedido</strong>
+                  </td>
+                  <td colspan="5">
+                    <span style="text-align: right;" class="pull-right">
+                      <strong>{{vmPedido.total | currency}}</strong>
+                    </span>
+                  </td>
+                  <td>
+                  </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</div>

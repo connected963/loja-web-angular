@@ -1,0 +1,74 @@
+<div class="row">
+
+    <div class="col-md-3" loja-categorias>
+
+    </div>
+
+    <div class="col-md-9">
+
+        <div class="thumbnail">
+            <img class="img-responsive" src="{{vmProduto.produto.urlFoto}}" alt="">
+            <div class="caption-full">
+                <h4 class="pull-right">{{vmProduto.produto.preco | currency}}</h4>
+                <h4>{{vmProduto.produto.nome}}</h4>
+                {{vmProduto.produto.descricao}}
+            </div>
+            <div class="ratings">
+                <loja-produto-nota
+                  avaliacoes="{{vmProduto.produto.avaliacoes}}"
+                  nota="{{vmProduto.produto.nota}}">
+                </loja-produto-nota>
+            </div>
+            <div class="text-center" style="margin: 10px;">
+                <a class="btn btn-success" ng-click="vmProduto.adicionarAoCarrinho()">Adicionar ao carrinho</a>
+            </div>
+        </div>
+        <h4>Avaliações</h4>
+        <div class="well">
+            <form>
+              <div class="form-group">
+                <label for="nota">Nota</label>
+                <label><input ng-model="vmProduto.novaAvaliacao.nota" type="radio" name="nota" value="1">1</label>
+                <label><input ng-model="vmProduto.novaAvaliacao.nota" type="radio" name="nota" value="2">2</label>
+                <label><input ng-model="vmProduto.novaAvaliacao.nota" type="radio" name="nota" value="3">3</label>
+                <label><input ng-model="vmProduto.novaAvaliacao.nota" type="radio" name="nota" value="4">4</label>
+                <label><input ng-model="vmProduto.novaAvaliacao.nota" type="radio" name="nota" value="5">5</label>
+              </div>
+              <div class="form-group">
+                <label for="titulo">Título</label>
+                <input type="text" name="titulo" ng-model="vmProduto.novaAvaliacao.titulo" value="" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="descricao">Descrição</label>
+                <textarea name="descricao" value="" ng-model="vmProduto.novaAvaliacao.descricao" class="form-control"></textarea>
+              </div>
+            </form>
+            <div class="text-right">
+                <a class="btn btn-primary" ng-click="vmProduto.enviarAvaliacao()">Enviar avaliação</a>
+            </div>
+
+            <hr>
+
+            <div class="row" ng-repeat="avaliacao in vmProduto.avaliacoes | orderBy: '-data'">
+                <div class="col-md-12">
+                    <span class="pull-left">
+                      <loja-produto-nota nota="{{avaliacao.nota}}"></loja-produto-nota>
+                    </span>
+                    <span class="pull-left" style="padding-left: 10px;">
+                      <strong>{{avaliacao.titulo}}</strong>
+                    </span>
+                    <span class="pull-right">
+                      por {{avaliacao.usuario.nome}} em {{avaliacao.data | date: 'dd/MM/yy'}}
+                    </span>
+                    <div class="clearfix">
+                    </div>
+                    <p>{{avaliacao.descricao}}</p>
+                    <hr>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

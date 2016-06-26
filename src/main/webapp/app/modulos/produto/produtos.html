@@ -1,0 +1,52 @@
+<div class="row">
+
+    <div class="col-md-3" loja-categorias>
+
+    </div>
+
+    <div class="col-md-9">
+
+        <div class="row carousel-holder">
+
+            <div class="col-md-12" loja-banners>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-lg-12">
+              Ordenar por:
+              <label style="margin: 5px;">
+                <input type="radio" name="ordenacao" ng-model="vmProdutos.ordem" value="nome">Nome
+              </label>
+              <label style="margin: 5px;">
+                <input type="radio" name="ordenacao" ng-model="vmProdutos.ordem" value="preco">Preço
+              </label>
+            </div>
+
+            <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="produto in vmProdutos.produtos | orderBy: vmProdutos.ordem">
+                <div class="thumbnail">
+                    <div class="text-center" style="padding: 5px;">
+                      <a href="#!/produto/{{produto.id}}">
+                        <img src="{{produto.urlFoto}}" alt="" style="display: inline; width: 90%; margin: 0px auto;">
+                      </a>
+                    </div>
+                    <div class="caption">
+                        <h5 class="pull-right" style="color: red;">{{produto.preco | currency}}</h5>
+                        <h5>
+                          <a href="#!/produto/{{produto.id}}">{{produto.nome}}</a>
+                        </h5>
+                        <p>{{produto.descricao | limitTo: 90}}...</p>
+                    </div>
+                    <div class="ratings">
+                      <loja-produto-nota avaliacoes="{{produto.avaliacoes}}" nota="{{produto.nota}}"></loja-produto-nota>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

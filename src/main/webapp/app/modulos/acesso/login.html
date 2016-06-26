@@ -1,0 +1,17 @@
+<div class="row" ng-app="acesso">
+    <div class="col-lg-4 col-centered">
+      <h3>Login</h3>
+      <form>
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="email" class="form-control" id="email" placeholder="E-mail" ng-model="vmLogin.email">
+        </div>
+        <div class="form-group">
+          <label for="senha">Senha</label>
+          <input type="password" class="form-control" id="senha" placeholder="Senha" ng-model="vmLogin.senha">
+        </div>
+        <button type="button" class="btn btn-success" ng-click="vmLogin.entrar()">Entrar</button>
+        <button type="button" class="btn btn-primary" ng-click="vmLogin.recuperarSenha()">Esqueci minha senha</button>
+      </form>
+    </div>
+</div>
