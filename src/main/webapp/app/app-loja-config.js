@@ -1,6 +1,7 @@
 // const URL_REST = 'http://192.168.1.53:8080/loja-web-rest/rest';
-// const URL_REST = 'http://192.168.0.9:8080/loja-web-rest/rest';
-const URL_REST = 'http://lojawebrest-diegokeller.rhcloud.com/rest';
+// const URL_REST = 'http://192.168.0.9:8090/loja-web-rest/rest';
+//const URL_REST = 'http://lojawebrest-diegokeller.rhcloud.com/rest';
+const URL_REST = 'http://loja-rest.jelastic.websolute.net.br/loja-web-rest/rest';
 
 angular
   .module('lojaApp')

@@ -5,14 +5,15 @@
     .module('lojaApp.pedido')
     .controller('PedidosController', PedidosController);
 
-  PedidosController.$inject = ['PedidoApi', 'Autenticacao'];
+  PedidosController.$inject = ['$window', 'PedidoApi', 'Autenticacao'];
 
-  function PedidosController(PedidoApi, Autenticacao){
+  function PedidosController($window, PedidoApi, Autenticacao){
 
     var vm = this;
 
     vm.pedidos = [];
     vm.totalizarPedido = totalizarPedido;
+    vm.downloadXML = downloadXML;
 
     initialize();
 
@@ -35,6 +36,10 @@
         total += (item.produto.preco * item.quantidade);
       }
       return total;
+    }
+    
+    function downloadXML(id){
+    	$window.open(PedidoApi.getURLDownloadXML(id));
     }
   }
 

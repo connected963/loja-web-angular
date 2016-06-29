@@ -16,6 +16,9 @@
                     <th>
                       Detalhes
                     </th>
+                    <th>
+                      Download
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -26,6 +29,9 @@
                     <td class="linha-carrinho" scope="row">{{vmPedidos.totalizarPedido(pedido) | currency }}</td>
                     <td class="linha-carrinho">
                       <a href="#!pedido/{{pedido.id}}">Detalhes</a>
+                    </td>
+                    <td class="linha-carrinho">
+                      <a href="#" ng-click="vmPedidos.downloadXML(pedido.id)">Download XML</a>
                     </td>
                 </tr>
             </tbody>

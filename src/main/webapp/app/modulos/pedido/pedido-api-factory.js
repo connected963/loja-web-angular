@@ -15,7 +15,8 @@
     var factory = {
       salvarPedido: salvarPedido,
       buscarPedidosUsuario: buscarPedidosUsuario,
-      buscarPedido: buscarPedido
+      buscarPedido: buscarPedido,
+      getURLDownloadXML: getURLDownloadXML
     };
     return factory;
 
@@ -31,6 +32,10 @@
 
     function buscarPedido(id){
       return $http.get(URL_REST_PEDIDO + '/' + id);
+    }
+    
+    function getURLDownloadXML(pedidoId){
+    	return URL_REST_PEDIDO + '/' + pedidoId + '/xml';
     }
 
   }
